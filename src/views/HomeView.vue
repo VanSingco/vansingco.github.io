@@ -3,22 +3,22 @@
     <nav class="fixed z-50 top-0 h-[60px] w-full flex justify-center items-center px-5 bg-black/10  backdrop-blur-xl">
       <ul class="flex">
           <li>
-            <a href="#home"  class="px-6 py-2 rounded-md bg-white/10 backdrop-blur-xl">Home</a>
+            <a href="#" v-scroll-to="'#home'" @click="activeMenu = 'home'"  :class="`px-6 py-2 rounded-md ${activeMenu == 'home' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Home</a>
           </li>
           <!-- <li>
             <nuxt-link to="#" class="px-6  py-2 rounded-md">About Me</nuxt-link>
           </li> -->
           <li>
-            <a href="#skills" class="px-6  py-2  rounded-md">Skills</a>
+            <a href="#" v-scroll-to="'#skills'" @click="activeMenu = 'skills'" :class="`px-6  py-2  rounded-md ${activeMenu == 'skills' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Skills</a>
           </li>
           <li>
-            <a href="#portfolio" class="px-6  py-2 rounded-md">Portfolio</a>
+            <a href="#" v-scroll-to="'#portfolio'" @click="activeMenu = 'portfolio'" :class="`px-6  py-2 rounded-md ${activeMenu == 'portfolio' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Portfolio</a>
           </li>
           <li>
-            <a href="#published" class="px-6  py-2 rounded-md">Published</a>
+            <a href="#" v-scroll-to="'#published'" @click="activeMenu = 'published'" :class="`px-6  py-2 rounded-md ${activeMenu == 'published' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Published</a>
           </li>
           <li>
-            <a href="#hireme" class="px-6  py-2 rounded-md">Hire Me</a>
+            <a href="#" v-scroll-to="'#hireme'" @click="activeMenu = 'hireme'" :class="`px-6  py-2 rounded-md ${activeMenu == 'hireme' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Hire Me</a>
           </li>
       </ul>
     </nav>
@@ -31,7 +31,7 @@
             <h1 class="text-[45px] font-bold capitalize">I'm <span class="text-white text-[40px] font-bold">Van Zachary Singco</span>, Full-Stack Web Developer.</h1>
             <p class="mt-5 text-[20px]">A full-stack web developer with experience on the web and passionate about designing dynamic and useful applications.</p>
             <div class="mt-10">
-              <a href="#hireme" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">Hire Me</a>
+              <a href="#" v-scroll-to="'#hireme'" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">Hire Me</a>
             </div>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 flex justify-center">
@@ -366,8 +366,7 @@ import {
   let currentPortfolio = ref<Portfolio | null>(null)
 
   const $toast = useToast();
-
-  const pdfUrl = "https://www.ijetae.com/files/Volume13Issue2/IJETAE_0223_07.pdf";
+  const activeMenu = ref('home');
   
 
   const isOpen = ref(false);
