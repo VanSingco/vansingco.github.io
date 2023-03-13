@@ -31,7 +31,7 @@
             <h1 class="text-[45px] font-bold capitalize">I'm <span class="text-white text-[40px] font-bold">Van Zachary Singco</span>, Full-Stack Web Developer.</h1>
             <p class="mt-5 text-[20px]">A full-stack web developer with experience on the web and passionate about designing dynamic and useful applications.</p>
             <div class="mt-10">
-              <button class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">Hire Me</button>
+              <a href="#hireme" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">Hire Me</a>
             </div>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 flex justify-center">
@@ -106,6 +106,9 @@
             <div class="mt-8">
               <h1 class="text-[25px] font-bold">Primary Author of OCR-based Hybrid Image Text Summarizer using Luhn Algorithm with Finetune Transformer Models for Long Document</h1>
               <p class="mt-5 text-[19px]">The main purpose of this research is to assist readers in speeding up the process of digitalizing and summarizing the image document by allowing them to digitalize and summarize the text from the image in the system.</p>
+              <div class="mt-20">
+                <a href="https://www.researchgate.net/publication/367944125_OCR-based_Hybrid_Image_Text_Summarizer_using_Luhn_Algorithm_with_Finetune_Transformer_Models_for_Long_Document" target="_blank" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">View Link</a>
+              </div>
             </div>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
@@ -235,7 +238,7 @@
                         <h2 class="ml-5 text-[18px] font-bold">{{currentPortfolio.title}}</h2>
                       </div>
                       <div class="mt-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officiis corporis nam assumenda porro tempore ab provident rerum dolorum nobis fugit vel accusamus, autem fugiat ipsum in vero obcaecati quis.
+                        {{ currentPortfolio.description }}
                       </div>
                       <div class="mt-8">
                         <h6 class="font-bold mb-3">Technology Used:</h6>
@@ -263,9 +266,8 @@ import emailjs from '@emailjs/browser';
 import PDFViewer from 'pdf-viewer-vue'
 import {useToast} from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
-import { ref } from 'vue'
-
-
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import {
   TransitionRoot,
   TransitionChild,
@@ -307,10 +309,16 @@ import {
     link: string
   }
 
+  const route = useRoute();
+
+  watch([route.fullPath], () => {
+    console.log('route: ', route.fullPath);
+  })
+
   const portfolio_list: Portfolio[] = [
     {
       title: 'Creator Galaxy',
-      description: "", 
+      description: "Creator Galaxy is a digital ecommerce business that specializes in video editing, photoshop, after effects, and other related services. Our goal is to migrate the frontend from the blade template engine to vue and redesign it, making the site mobile friendly and fast to load, as well as adding new functionalities to the application.", 
       icons: 'laravel,vue,javascript,php,sass,stripe,git,bootstrap', 
       logo: '/images/logo/creator-logo.png', 
       cover_photo: '/images/portfolio/creator-galaxy-short.png',
@@ -319,7 +327,7 @@ import {
     },
     {
       title: 'Living learning Homeschool',
-      description: "", 
+      description: "A living learning homeschool is an online homeschool that offers DEPED accreditation and homeschool accountability to homeschooling families via a partner school. Our goal is to develop a school application from the ground up that allows them to engage with and monitor students and parents.", 
       icons: 'laravel,vue,nuxt,javascript,php,sass,git,bootstrap,tailwind', 
       logo: '/images/logo/llh-logo.png', 
       cover_photo: '/images/portfolio/llh-short-1.png',
@@ -328,7 +336,7 @@ import {
     },
     {
       title: 'Loangraph',
-      description: "", 
+      description: "LoanGraphs is a home value analysis and loan comparison tool that assists businesses in educating their customers and closing more sales. Our duty is to maintain the application running smoothly including fixing bugs, testing it, and adding new features.", 
       icons: 'laravel,vue,nuxt,javascript,php,sass,git,tailwind,stripe,gmail', 
       logo: '/images/logo/loangraph-logo.svg', 
       cover_photo: '/images/portfolio/loangraph-short.png',
@@ -337,7 +345,7 @@ import {
     },
     {
       title: 'Vision Next',
-      description: "", 
+      description: "VISION is a real-time video communications platform that allows users to create meetings, chat, group chats, and other features. Our task is to maintain the application running well and to add new features such as plan subscriptions, chat systems, and more.", 
       icons: 'aws,react,ts,stripe,git', 
       logo: '/images/logo/vision-logo.svg', 
       cover_photo: '/images/portfolio/vision-next-short.png',
@@ -346,7 +354,7 @@ import {
     },
     {
       title: 'Cleanafi',
-      description: "", 
+      description: "Cleanafi is an online laundry software that provides laundry items and delivers them to your home or office. Our goal is to develop an application that will allow them to manage their business, such as laundry scheduling and payment systems.", 
       icons: 'laravel,vue,javascript,php,sass,git,bootstrap,stripe', 
       logo: '/images/logo/cleanafi-logo.png', 
       cover_photo: '/images/portfolio/cleanafi-short.png',
