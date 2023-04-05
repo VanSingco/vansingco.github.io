@@ -1,15 +1,15 @@
 <template>
   <main class="relative home w-full h-full overflow-hidden scroll-smooth">
-    <nav class="fixed z-50 top-0 h-[60px] w-full flex justify-center items-center px-5 bg-black/10  backdrop-blur-xl">
+    <nav class="hidden fixed z-50 top-0 h-[60px] w-full sm:flex justify-center items-center px-5 bg-black/10  backdrop-blur-xl">
       <ul class="flex">
           <li>
             <a href="#" v-scroll-to="'#home'" @click="activeMenu = 'home'"  :class="`px-6 py-2 rounded-md ${activeMenu == 'home' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Home</a>
           </li>
-          <!-- <li>
-            <nuxt-link to="#" class="px-6  py-2 rounded-md">About Me</nuxt-link>
-          </li> -->
           <li>
             <a href="#" v-scroll-to="'#skills'" @click="activeMenu = 'skills'" :class="`px-6  py-2  rounded-md ${activeMenu == 'skills' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Skills</a>
+          </li>
+          <li>
+            <a href="#" v-scroll-to="'#aboutme'" @click="activeMenu = 'aboutme'" :class="`px-6  py-2  rounded-md ${activeMenu == 'aboutme' ? 'bg-white/10 backdrop-blur-xl' : ''}`">About Me</a>
           </li>
           <li>
             <a href="#" v-scroll-to="'#portfolio'" @click="activeMenu = 'portfolio'" :class="`px-6  py-2 rounded-md ${activeMenu == 'portfolio' ? 'bg-white/10 backdrop-blur-xl' : ''}`">Portfolio</a>
@@ -22,20 +22,53 @@
           </li>
       </ul>
     </nav>
+    <nav class="fixed z-50 top-0 w-full sm:hidden px-5 bg-black/10  backdrop-blur-xl">
+      <div class="flex justify-between items-center w-full h-[60px]">
+        <a href="#" v-scroll-to="'#home'"></a>
+        <div class="cursor-pointer" @click="isOpenNavbar = !isOpenNavbar">
+          <svg v-if="!isOpenNavbar" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+          </svg>
+        </div>
+      </div>
+        <ul v-if="isOpenNavbar" class="w-full">
+          <li :class="`mb-3 px-6 py-2 rounded-md w-full ${activeMenu == 'home' ? 'bg-white/10 backdrop-blur-xl' : ''}`">
+            <a href="#" v-scroll-to="'#home'" @click="activeMenu = 'home'" >Home</a>
+          </li>
+          <li :class="`mb-3 px-6 py-2 rounded-md w-full ${activeMenu == 'skills' ? 'bg-white/10 backdrop-blur-xl' : ''}`">
+            <a href="#" v-scroll-to="'#skills'" @click="activeMenu = 'skills'">Skills</a>
+          </li>
+          <li :class="`mb-3 px-6 py-2 rounded-md w-full ${activeMenu == 'aboutme' ? 'bg-white/10 backdrop-blur-xl' : ''}`">
+            <a href="#" v-scroll-to="'#aboutme'" @click="activeMenu = 'aboutme'">About Me</a>
+          </li>
+          <li :class="`mb-3 px-6 py-2 rounded-md w-full ${activeMenu == 'portfolio' ? 'bg-white/10 backdrop-blur-xl' : ''}`">
+            <a href="#" v-scroll-to="'#portfolio'" @click="activeMenu = 'portfolio'">Portfolio</a>
+          </li>
+          <li :class="`mb-3 px-6 py-2 rounded-md w-full ${activeMenu == 'published' ? 'bg-white/10 backdrop-blur-xl' : ''}`">
+            <a href="#" v-scroll-to="'#published'" @click="activeMenu = 'published'">Published</a>
+          </li>
+          <li :class="`mb-3 px-6 py-2 rounded-md w-full ${activeMenu == 'hireme' ? 'bg-white/10 backdrop-blur-xl' : ''}`">
+            <a href="#" v-scroll-to="'#hireme'" @click="activeMenu = 'hireme'">Hire Me</a>
+          </li>
+      </ul>
+    </nav>
     <div class="flex justify-center items-center">
-      <div class="container">
+      <div class="container-lg">
         <!-- header -->
         <div id="home" class="pt-[100px] home__header grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 items-center">
-          <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 pl-14">
-            <h4 class="text-[30px] font-bold"><span>{{`<`}}</span> <span class="text-white">Hello</span> <span>{{`/>`}}</span></h4>
-            <h1 class="text-[45px] font-bold capitalize">I'm <span class="text-white text-[40px] font-bold">Van Zachary Singco</span>, Full-Stack Web Developer.</h1>
-            <p class="mt-5 text-[20px]">A full-stack web developer with experience on the web and passionate about designing dynamic and useful applications.</p>
+          <div class="order-last md:order-first col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 pl-8 md:pl-14">
+            <h4 class="text-[25px] md:text-[30px] font-bold"><span>{{`<`}}</span> <span class="text-white">Hello</span> <span>{{`/>`}}</span></h4>
+            <h1 class="text-[30px] md:text-[45px] font-bold capitalize">I'm <span class="text-white text-[30px md:text-[45px] font-bold">Van Zachary Singco</span>, Full-Stack Web Developer.</h1>
+            <p class="mt-5 text-[15px] md:text-[20px]">Full-stack web developer with experience and passionate about designing and creating dynamic useful applications.</p>
             <div class="mt-10">
               <a href="#" v-scroll-to="'#hireme'" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">Hire Me</a>
             </div>
           </div>
-          <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 flex justify-center">
-              <img src="/images/my-profile.svg" alt="" class="w-[520px] ">
+          <div class="order-first md:order-last col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 flex justify-center">
+              <img src="/images/my-profile.svg" alt="" class="w-[400px] md:w-[520px] ">
           </div>
         </div>
         <!-- about me -->
@@ -53,34 +86,52 @@
         </div> -->
         <!-- skills -->
         <div class="relative pt-10" id="skills">
-          <div class="skill__header grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-20">
-            <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 mb-10">
-              <h4 class="text-[30px] font-bold mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Skills</span> <span>{{`/>`}}</span></h4>
+          <div class="skill__header grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 gap-4 md:gap-10 mt-28 px-5 md:px-20">
+            <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 mb-10">
+              <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Skills</span> <span>{{`/>`}}</span></h4>
             </div>
-            <div v-for="skill in skills" class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-4 p-5 rounded-2xl bg-[#3C2A21]/10 border border-[#3C2A21]/30 backdrop-blur-xl w-full">
-              <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 gap-5 items-center">
-                <div class="col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-2">
-                  <img :src="`https://skillicons.dev/icons?i=${skill.icon}`" />
+            <div v-for="skill in skills" class="col-span-6 sm:col-span-3 md:col-span-4 lg:col-span-2 p-3 rounded-2xl bg-[#3C2A21]/10 border border-[#3C2A21]/30 backdrop-blur-xl w-full">
+              <div class="flex items-center justify-center flex-col">
+                <div class="">
+                  <img :src="`https://skillicons.dev/icons?i=${skill.icon}`" class="w-[30px]" />
                 </div>
-                <div  class="col-span-1 sm:col-span-1 md:col-span-10 lg:col-span-10">
-                  <div class="flex justify-between">
-                    <h4 class="text-[16] font-bold">{{skill.name}}</h4>
-                    <h4 class="text-[16] font-bold text-white">{{skill.pecent}}%</h4>
-                  </div>
-                  <div class="mt-3">
-                    <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-100/20">
-                      <div class="bg-green-500 h-1 rounded-full" :style="`width: ${skill.pecent}%`"></div>
-                    </div>
-                  </div>
+                <div class="text-center mt-3">
+                  <h4 class="text-[16] font-bold">{{skill.name}}</h4>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- skills -->
+        <div class="relative pt-10" id="aboutme">
+          <div class="skill__header grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 content-center gap-4 md:gap-10 mt-28 px-5 md:px-20">
+            <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 mb-10">
+              <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">About Me</span> <span>{{`/>`}}</span></h4>
+            </div>
+          </div>
+          <div class="flex justify-center px-5">
+            <div class="mt-5 w-full md:w-[600px] lg:w-[1000px]">
+              <h2 class="text-[18px] md:text-[25px] font-bold capitalize mb-4">Hello!</h2>
+              <p class="text-[15px] md:text-[20px] text-white mb-3">
+                My name is Van Zachary V. Singco, and I'm a passionate Full-Stack Web Developer that uses web technologies to build amazing
+                applications.
+              </p>
+              <p class="text-[15px] md:text-[20px] text-white mb-3">
+                I have 4 years of experience in web development, 1 year in frontend, 1 year in backend, and 2 years in full-stack web development.
+              </p>
+              <p class="text-[15px] md:text-[20px] text-white mb-3">
+                With my experience, I gained a strong foundation in various programming languages and web frameworks such as Javascript, PHP, Python, ReactJS, VueJS, and Laravel, and I continually expand my knowledge through self-study and professional development opportunities.
+              </p>
+              <p class="text-[15px] md:text-[20px] text-white mb-3">
+                I am excited to continue growing my skills and contributing to innovative and challenging projects in the web development industry.
+              </p>
+            </div>
+          </div>
+        </div>
         <!-- portfolio -->
-        <div id="portfolio" class="pt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-20">
+        <div id="portfolio" class="pt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-5 md:px-20">
           <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 mb-10">
-            <h4 class="text-[30px] font-bold mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Portfolio</span> <span>{{`/>`}}</span></h4>
+            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Portfolio</span> <span>{{`/>`}}</span></h4>
           </div>
 
           <div v-for="portfolio in portfolio_list" class="col-span-1 overflow-hidden sm:col-span-1 md:col-span-6 lg:col-span-4 rounded-2xl bg-[#3C2A21]/10 border border-[#3C2A21]/30 backdrop-blur-xl w-full">
@@ -98,23 +149,23 @@
           </div>
         </div>
 
-        <div id="published" class="pt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-20">
-          <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 mb-10">
-            <h4 class="text-[30px] font-bold mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Published</span> <span>{{`/>`}}</span></h4>
+        <div id="published" class="pt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-5 md:px-20">
+          <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 md:mb-10">
+            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Published</span> <span>{{`/>`}}</span></h4>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
             <div class="mt-8">
               <h1 class="text-[25px] font-bold">Primary Author of OCR-based Hybrid Image Text Summarizer using Luhn Algorithm with Finetune Transformer Models for Long Document</h1>
               <p class="mt-5 text-[19px]">The main purpose of this research is to assist readers in speeding up the process of digitalizing and summarizing the image document by allowing them to digitalize and summarize the text from the image in the system.</p>
-              <div class="mt-20">
-                <a href="https://www.researchgate.net/publication/367944125_OCR-based_Hybrid_Image_Text_Summarizer_using_Luhn_Algorithm_with_Finetune_Transformer_Models_for_Long_Document" target="_blank" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">View Link</a>
+              <div class="mt-20 mb-10 md:mb-0">
+                <a href="https://www.researchgate.net/publication/367944125_OCR-based_Hybrid_Image_Text_Summarizer_using_Luhn_Algorithm_with_Finetune_Transformer_Models_for_Long_Document" target="_blank" class="px-[45px] py-[15px] w-full md:w-auto rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">View Link</a>
               </div>
             </div>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
             <PDFViewer
               source="/pdf/IJETAE_0223_07.pdf"
-              style="height: 500px; width: 100%"
+              style="height:500px;  width: 100%"
               class="rounded-2xl"
               @download="handleDownload"
             />
@@ -122,9 +173,9 @@
         </div>
 
         <!-- Hire Me -->
-        <div id="hireme" class="pt-16 hire__header grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-20">
-          <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 mb-10">
-            <h4 class="text-[30px] font-bold mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Hire Me</span> <span>{{`/>`}}</span></h4>
+        <div id="hireme" class="pt-16 hire__header grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-5 md:px-20">
+          <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 md:mb-10">
+            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Hire Me</span> <span>{{`/>`}}</span></h4>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
             <div class="flex items-center mb-10 mt-10">
@@ -134,7 +185,7 @@
                 </svg>
               </div>
               <div>
-                <p class="text-[20px] font-semibold">https://github.com/VanSingco</p>
+                <p class="text-[20px] font-semibold" style="word-break: break-word;">https://github.com/VanSingco</p>
               </div>
             </div>
             <div class="flex items-center mb-10">
@@ -192,9 +243,6 @@
         </div>
       </div>
     </div>
-
-
-
 
     <!-- modal -->
     <TransitionRoot appear :show="isOpen" as="template">
@@ -286,9 +334,9 @@ import {
     {name: "PHP", pecent: 95, icon: 'php'},
     {name: "PYTHON", pecent: 80, icon: 'python'},
     {name: "Typescript", pecent: 80, icon: 'ts'},
-    {name: "VUE", pecent: 90, icon: 'vue'},
+    {name: "VUE JS", pecent: 90, icon: 'vue'},
     {name: "NUXT JS", pecent: 90, icon: 'nuxtjs'},
-    {name: "REACT", pecent: 80, icon: 'react'},
+    {name: "REACT JS", pecent: 80, icon: 'react'},
     {name: "NEXT JS", pecent: 70, icon: 'nextjs'},
     {name: "LARAVEL", pecent: 90, icon: 'laravel'},
     {name: "NODE JS", pecent: 80, icon: 'nodejs'},
@@ -318,7 +366,7 @@ import {
   const portfolio_list: Portfolio[] = [
     {
       title: 'Creator Galaxy',
-      description: "Creator Galaxy is a digital ecommerce business that specializes in video editing, photoshop, after effects, and other related services. Our goal is to migrate the frontend from the blade template engine to vue and redesign it, making the site mobile friendly and fast to load, as well as adding new functionalities to the application.", 
+      description: "Creator Galaxy is a digital ecommerce business that specializes in video editing, photoshop, after effects, and other related services. My job is to migrate the frontend from the blade template engine to vue and redesign it, making the site mobile friendly and fast to load, as well as adding new functionalities to the application.", 
       icons: 'laravel,vue,javascript,php,sass,stripe,git,bootstrap', 
       logo: '/images/logo/creator-logo.png', 
       cover_photo: '/images/portfolio/creator-galaxy-short.png',
@@ -327,7 +375,7 @@ import {
     },
     {
       title: 'Living learning Homeschool',
-      description: "A living learning homeschool is an online homeschool that offers DEPED accreditation and homeschool accountability to homeschooling families via a partner school. Our goal is to develop a school application from the ground up that allows them to engage with and monitor students and parents.", 
+      description: "A living learning homeschool is an online homeschool that offers DEPED accreditation and homeschool accountability to homeschooling families via a partner school. My job is to develop a school application from the ground up that allows them to engage with and monitor students and parents.", 
       icons: 'laravel,vue,nuxt,javascript,php,sass,git,bootstrap,tailwind', 
       logo: '/images/logo/llh-logo.png', 
       cover_photo: '/images/portfolio/llh-short-1.png',
@@ -336,7 +384,7 @@ import {
     },
     {
       title: 'Loangraph',
-      description: "LoanGraphs is a home value analysis and loan comparison tool that assists businesses in educating their customers and closing more sales. Our duty is to maintain the application running smoothly including fixing bugs, testing it, and adding new features.", 
+      description: "LoanGraphs is a home value analysis and loan comparison tool that assists businesses in educating their customers and closing more sales. My duty is to maintain the application running smoothly including fixing bugs, testing it, and adding new features.", 
       icons: 'laravel,vue,nuxt,javascript,php,sass,git,tailwind,stripe,gmail', 
       logo: '/images/logo/loangraph-logo.svg', 
       cover_photo: '/images/portfolio/loangraph-short.png',
@@ -345,7 +393,7 @@ import {
     },
     {
       title: 'Vision Next',
-      description: "VISION is a real-time video communications platform that allows users to create meetings, chat, group chats, and other features. Our task is to maintain the application running well and to add new features such as plan subscriptions, chat systems, and more.", 
+      description: "VISION is a real-time video communications platform that allows users to create meetings, chat, group chats, and other features. My task is to maintain the application running well and to add new features such as plan subscriptions, chat systems, and more.", 
       icons: 'aws,react,ts,stripe,git', 
       logo: '/images/logo/vision-logo.svg', 
       cover_photo: '/images/portfolio/vision-next-short.png',
@@ -354,7 +402,7 @@ import {
     },
     {
       title: 'Cleanafi',
-      description: "Cleanafi is an online laundry software that provides laundry items and delivers them to your home or office. Our goal is to develop an application that will allow them to manage their business, such as laundry scheduling and payment systems.", 
+      description: "Cleanafi is an online laundry software that provides laundry items and delivers them to your home or office. My job is to develop an application that will allow them to manage their business, such as laundry scheduling and payment systems.", 
       icons: 'laravel,vue,javascript,php,sass,git,bootstrap,stripe', 
       logo: '/images/logo/cleanafi-logo.png', 
       cover_photo: '/images/portfolio/cleanafi-short.png',
@@ -370,6 +418,8 @@ import {
   
 
   const isOpen = ref(false);
+  const isOpenNavbar = ref(false);
+
   const loading = ref(false);
   const emailData = ref({
     from_name: '',
@@ -407,6 +457,7 @@ import {
   function closeModal() {
     isOpen.value = false
   }
+
 
   function openModal(portfolio: Portfolio) {
     currentPortfolio.value = portfolio;
