@@ -342,7 +342,7 @@ import {
     {name: "NODE JS", pecent: 80, icon: 'nodejs'},
     {name: "MYSQL", pecent: 90, icon: 'mysql'},
     {name: "MONGODB", pecent: 80, icon: 'mongodb'},
-    {name: "POSTGRES", pecent: 70, icon: 'postgres'},
+    // {name: "POSTGRES", pecent: 70, icon: 'postgres'},
     {name: "GRAPHQL", pecent: 70, icon: 'graphql'},
     {name: "GIT", pecent: 80, icon: 'git'},
   ];
