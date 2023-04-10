@@ -367,7 +367,7 @@ import {
     {
       title: 'Creator Galaxy',
       description: "Creator Galaxy is a digital ecommerce business that specializes in video editing, photoshop, after effects, and other related services. My job is to migrate the frontend from the blade template engine to vue and redesign it, making the site mobile friendly and fast to load, as well as adding new functionalities to the application.", 
-      icons: 'laravel,vue,javascript,php,sass,stripe,git,bootstrap', 
+      icons: 'laravel,vue,javascript,php,sass,stripe,git,bootstrap,mysql', 
       logo: '/images/logo/creator-logo.png', 
       cover_photo: '/images/portfolio/creator-galaxy-short.png',
       long_photo: '/images/portfolio/creator-galaxy-long.png',
@@ -376,7 +376,7 @@ import {
     {
       title: 'Living learning Homeschool',
       description: "A living learning homeschool is an online homeschool that offers DEPED accreditation and homeschool accountability to homeschooling families via a partner school. My job is to develop a school application from the ground up that allows them to engage with and monitor students and parents.", 
-      icons: 'laravel,vue,nuxt,javascript,php,sass,git,bootstrap,tailwind', 
+      icons: 'laravel,vue,nuxt,javascript,php,sass,git,bootstrap,tailwind,mysql', 
       logo: '/images/logo/llh-logo.png', 
       cover_photo: '/images/portfolio/llh-short-1.png',
       long_photo: '/images/portfolio/llh-long.png',
@@ -385,7 +385,7 @@ import {
     {
       title: 'Loangraph',
       description: "LoanGraphs is a home value analysis and loan comparison tool that assists businesses in educating their customers and closing more sales. My duty is to maintain the application running smoothly including fixing bugs, testing it, and adding new features.", 
-      icons: 'laravel,vue,nuxt,javascript,php,sass,git,tailwind,stripe,gmail', 
+      icons: 'laravel,vue,nuxt,javascript,php,sass,git,tailwind,stripe,gmail,mysql', 
       logo: '/images/logo/loangraph-logo.svg', 
       cover_photo: '/images/portfolio/loangraph-short.png',
       long_photo: '/images/portfolio/loangraph-long.png',
@@ -403,7 +403,7 @@ import {
     {
       title: 'Cleanafi',
       description: "Cleanafi is an online laundry software that provides laundry items and delivers them to your home or office. My job is to develop an application that will allow them to manage their business, such as laundry scheduling and payment systems.", 
-      icons: 'laravel,vue,javascript,php,sass,git,bootstrap,stripe', 
+      icons: 'laravel,vue,javascript,php,sass,git,bootstrap,stripe,mysql', 
       logo: '/images/logo/cleanafi-logo.png', 
       cover_photo: '/images/portfolio/cleanafi-short.png',
       long_photo: '/images/portfolio/cleanafi-long.png',
