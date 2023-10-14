@@ -1,5 +1,5 @@
 <template>
-  <main class="relative home w-full h-full overflow-hidden scroll-smooth">
+  <main class="relative w-full h-full overflow-hidden home scroll-smooth">
     <nav class="hidden fixed z-50 top-0 h-[60px] w-full sm:flex justify-center items-center px-5 bg-black/10  backdrop-blur-xl">
       <ul class="flex">
           <li>
@@ -22,7 +22,7 @@
           </li>
       </ul>
     </nav>
-    <nav class="fixed z-50 top-0 w-full sm:hidden px-5 bg-black/10  backdrop-blur-xl">
+    <nav class="fixed top-0 z-50 w-full px-5 sm:hidden bg-black/10 backdrop-blur-xl">
       <div class="flex justify-between items-center w-full h-[60px]">
         <a href="#" v-scroll-to="'#home'"></a>
         <div class="cursor-pointer" @click="isOpenNavbar = !isOpenNavbar">
@@ -55,11 +55,11 @@
           </li>
       </ul>
     </nav>
-    <div class="flex justify-center items-center">
-      <div class="container-lg">
+    <div class="flex items-center justify-center">
+      <div class="container">
         <!-- header -->
         <div id="home" class="pt-[100px] home__header grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 items-center">
-          <div class="order-last md:order-first col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 pl-8 md:pl-14">
+          <div class="order-last col-span-1 pl-8 md:order-first sm:col-span-1 md:col-span-6 lg:col-span-6 md:pl-14">
             <h4 class="text-[25px] md:text-[30px] font-bold"><span>{{`<`}}</span> <span class="text-white">Hello</span> <span>{{`/>`}}</span></h4>
             <h1 class="text-[30px] md:text-[45px] font-bold capitalize">I'm <span class="text-white text-[30px md:text-[45px] font-bold">Van Zachary Singco</span>, Full-Stack Web Developer.</h1>
             <p class="mt-5 text-[15px] md:text-[20px]">Full-stack web developer with experience and passionate about designing and creating dynamic useful applications.</p>
@@ -67,7 +67,7 @@
               <a href="#" v-scroll-to="'#hireme'" class="px-[45px] py-[15px] rounded-xl bg-[#34231B]/50 text-white text-[20px] font-medium">Hire Me</a>
             </div>
           </div>
-          <div class="order-first md:order-last col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6 flex justify-center">
+          <div class="flex justify-center order-first col-span-1 md:order-last sm:col-span-1 md:col-span-6 lg:col-span-6">
               <img src="/images/my-profile.svg" alt="" class="w-[400px] md:w-[520px] ">
           </div>
         </div>
@@ -86,16 +86,16 @@
         </div> -->
         <!-- skills -->
         <div class="relative pt-10" id="skills">
-          <div class="skill__header grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 gap-4 md:gap-10 mt-28 px-5 md:px-20">
-            <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 mb-10">
-              <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Skills</span> <span>{{`/>`}}</span></h4>
+          <div class="grid grid-cols-12 gap-4 px-5 skill__header sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 md:gap-10 mt-28 md:px-20">
+            <div class="col-span-12 mb-10 sm:col-span-12 md:col-span-12 lg:col-span-12">
+              <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="font-bold text-white">Skills</span> <span>{{`/>`}}</span></h4>
             </div>
             <div v-for="skill in skills" class="col-span-6 sm:col-span-3 md:col-span-4 lg:col-span-2 p-3 rounded-2xl bg-[#3C2A21]/10 border border-[#3C2A21]/30 backdrop-blur-xl w-full">
-              <div class="flex items-center justify-center flex-col">
+              <div class="flex flex-col items-center justify-center">
                 <div class="">
                   <img :src="`https://skillicons.dev/icons?i=${skill.icon}`" class="w-[30px]" />
                 </div>
-                <div class="text-center mt-3">
+                <div class="mt-3 text-center">
                   <h4 class="text-[16] font-bold">{{skill.name}}</h4>
                 </div>
               </div>
@@ -104,9 +104,9 @@
         </div>
         <!-- skills -->
         <div class="relative pt-10" id="aboutme">
-          <div class="skill__header grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 content-center gap-4 md:gap-10 mt-28 px-5 md:px-20">
-            <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 mb-10">
-              <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">About Me</span> <span>{{`/>`}}</span></h4>
+          <div class="grid content-center grid-cols-12 gap-4 px-5 skill__header sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 md:gap-10 mt-28 md:px-20">
+            <div class="col-span-12 mb-10 sm:col-span-12 md:col-span-12 lg:col-span-12">
+              <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="font-bold text-white">About Me</span> <span>{{`/>`}}</span></h4>
             </div>
           </div>
           <div class="flex justify-center px-5">
@@ -117,7 +117,7 @@
                 applications.
               </p>
               <p class="text-[15px] md:text-[20px] text-white mb-3">
-                I have 4 years of experience in web development, 1 year in frontend, 1 year in backend, and 2 years in full-stack web development.
+                I have 4 years of experience in web development, 3 year in frontend, 2 year in backend, and 2 years in full-stack web development.
               </p>
               <p class="text-[15px] md:text-[20px] text-white mb-3">
                 With my experience, I gained a strong foundation in various programming languages and web frameworks such as Javascript, PHP, Python, ReactJS, VueJS, and Laravel, and I continually expand my knowledge through self-study and professional development opportunities.
@@ -129,14 +129,14 @@
           </div>
         </div>
         <!-- portfolio -->
-        <div id="portfolio" class="pt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-5 md:px-20">
-          <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 mb-10">
-            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Portfolio</span> <span>{{`/>`}}</span></h4>
+        <div id="portfolio" class="grid grid-cols-1 gap-10 px-5 pt-16 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 mt-28 md:px-20">
+          <div class="col-span-1 mb-10 sm:col-span-1 md:col-span-12 lg:col-span-12">
+            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="font-bold text-white">Portfolio</span> <span>{{`/>`}}</span></h4>
           </div>
 
           <div v-for="portfolio in portfolio_list" class="col-span-1 overflow-hidden sm:col-span-1 md:col-span-6 lg:col-span-4 rounded-2xl bg-[#3C2A21]/10 border border-[#3C2A21]/30 backdrop-blur-xl w-full">
             <img :src="portfolio.cover_photo" class="w-full h-[200px]" alt="">
-            <div class="p-5 relative">
+            <div class="relative p-5">
               <div class="flex">
                 <img :src="portfolio.logo" class="w-[80px] h-[80px] rounded-2xl bg-gray-500/30 backdrop-blur-xl p-3 mt-[-50px]" style="object-fit: contain;" alt="">
                 <h2 class="ml-5 text-[16px] font-bold">{{portfolio.title}}</h2>
@@ -149,9 +149,9 @@
           </div>
         </div>
 
-        <div id="published" class="pt-16 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-5 md:px-20">
+        <div id="published" class="grid grid-cols-1 gap-10 px-5 pt-16 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 mt-28 md:px-20">
           <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 md:mb-10">
-            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Published</span> <span>{{`/>`}}</span></h4>
+            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="font-bold text-white">Published</span> <span>{{`/>`}}</span></h4>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
             <div class="mt-8">
@@ -173,12 +173,12 @@
         </div>
 
         <!-- Hire Me -->
-        <div id="hireme" class="pt-16 hire__header grid grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-10 mt-28 px-5 md:px-20">
+        <div id="hireme" class="grid grid-cols-1 gap-10 px-5 pt-16 hire__header sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 mt-28 md:px-20">
           <div class="col-span-1 sm:col-span-1 md:col-span-12 lg:col-span-12 md:mb-10">
-            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="text-white font-bold">Hire Me</span> <span>{{`/>`}}</span></h4>
+            <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="font-bold text-white">Hire Me</span> <span>{{`/>`}}</span></h4>
           </div>
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
-            <div class="flex items-center mb-10 mt-10">
+            <div class="flex items-center mt-10 mb-10">
               <div class="mr-5 rounded-2xl bg-[#3C2A21]/30 backdrop-blur-2xl  border border-[#3C2A21]/50 w-[60px] h-[60px] flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
@@ -213,20 +213,20 @@
           <div class="col-span-1 sm:col-span-1 md:col-span-6 lg:col-span-6">
             <form action="" method="post" @submit.prevent="sendEmail">
               <div class="mb-5">
-                <label for="" class="mb-5 mx-2">Name</label>
+                <label for="" class="mx-2 mb-5">Name</label>
                 <input type="text" v-model="emailData.from_name" required placeholder="Enter your name" class="mt-3 bg-gray-500/10 backdrop-blur-2xl border border-white/10 text-white text-[16px] w-full py-4 px-5 rounded-xl">
               </div>
               <div class="mb-5">
-                <label for="" class="mb-5 mx-2">Email</label>
+                <label for="" class="mx-2 mb-5">Email</label>
                 <input type="email" v-model="emailData.email" required placeholder="Enter your email" class="mt-3 bg-gray-500/10 backdrop-blur-2xl border border-white/10 text-white text-[16px] w-full py-4 px-5 rounded-xl">
               </div>
               <div class="mb-5">
-                <label for="" class="mb-5 mx-2">Message</label>
+                <label for="" class="mx-2 mb-5">Message</label>
                 <textarea placeholder="Enter your message" v-model="emailData.message" required class="mt-3 bg-gray-500/20 backdrop-blur-2xl border border-white/10 text-white text-[16px] w-full py-4 px-5 rounded-xl" name="" id="" cols="30" rows="5"></textarea>
               </div>
               <div class="">
                 <button type="submit" class="px-5 py-4 w-full flex items-center justify-center text-center rounded-xl bg-[#34231B]/50 text-white text-[14px] font-medium">
-                  <svg v-if="loading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg v-if="loading" class="w-5 h-5 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
@@ -261,7 +261,7 @@
   
         <div class="fixed inset-0 overflow-y-auto">
           <div
-            class="flex min-h-full items-center justify-center p-4 text-center"
+            class="flex items-center justify-center min-h-full p-4 text-center"
           >
             <TransitionChild
               as="template"
@@ -280,7 +280,7 @@
                     <img :src="currentPortfolio.long_photo" alt="">
                   </div>
                   <div class="col-span-1 sm:col-span-1 md:col-span-5 lg:col-span-4">
-                    <div class="p-5 relative">
+                    <div class="relative p-5">
                       <div class="flex items-center">
                         <img :src="currentPortfolio.logo" class="w-[60px] h-[60px] rounded-2xl bg-gray-300/30 backdrop-blur-xl p-3" style="object-fit: contain;" alt="">
                         <h2 class="ml-5 text-[18px] font-bold">{{currentPortfolio.title}}</h2>
@@ -289,10 +289,10 @@
                         {{ currentPortfolio.description }}
                       </div>
                       <div class="mt-8">
-                        <h6 class="font-bold mb-3">Technology Used:</h6>
+                        <h6 class="mb-3 font-bold">Technology Used:</h6>
                         <img :src="`https://skillicons.dev/icons?i=${currentPortfolio.icons}`" />
                       </div>
-                      <div class="mb-5 mt-16 w-full">
+                      <div class="w-full mt-16 mb-5">
                         <a :href="currentPortfolio.link"  class="px-[45px] py-[15px] w-full text-center rounded-md bg-[#34231B] text-white text-[14px] font-medium" target="_blank" rel="noopener noreferrer">Visit Link</a>
                         
                       </div>
