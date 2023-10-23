@@ -102,6 +102,8 @@
             </div>
           </div>
         </div>
+
+
         <!-- skills -->
         <div class="relative pt-10" id="aboutme">
           <div class="grid content-center grid-cols-12 gap-4 px-5 skill__header sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 md:gap-10 mt-28 md:px-20">
@@ -133,6 +135,8 @@
           <div class="col-span-1 mb-10 sm:col-span-1 md:col-span-12 lg:col-span-12">
             <h4 class="text-[30px] font-bold md:mb-5 text-center"><span>{{`<`}}</span> <span class="font-bold text-white">Portfolio</span> <span>{{`/>`}}</span></h4>
           </div>
+
+          
 
           <div v-for="portfolio in portfolio_list" class="col-span-1 overflow-hidden sm:col-span-1 md:col-span-6 lg:col-span-4 rounded-2xl bg-[#3C2A21]/10 border border-[#3C2A21]/30 backdrop-blur-xl w-full">
             <img :src="portfolio.cover_photo" class="w-full h-[200px]" alt="">
