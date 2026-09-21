@@ -13,6 +13,7 @@ Note: `README.md` is the unmodified Vue/Vite scaffold README. It is not a source
 ```sh
 npm run dev         # Vite dev server
 npm run build       # vue-tsc --build, then vite build
+npm run deploy      # build, then publish dist/ to the gh-pages root
 npm run type-check  # vue-tsc --build
 npm run build-only  # vite build, no type-check
 npm run preview     # serve dist/ locally
@@ -23,6 +24,11 @@ There is no test runner and no lint script. `vue-tsc --build` is the only automa
 ## Deployment
 
 GitHub Pages serves the **`gh-pages` branch root** (verified via the Pages API: `build_type: legacy`, `source.branch: gh-pages`). There is no Actions workflow — publishing means getting the *contents* of `dist/` onto `gh-pages`.
+
+`npm run deploy` (`scripts/deploy.sh`) does the publishing: it builds, checks `origin/gh-pages` out
+into a temp worktree on local disk, replaces its contents with `dist/`, and pushes detached
+(`HEAD:gh-pages`) so it never collides with a `gh-pages` branch checked out elsewhere. Pass
+`--no-build` to publish the existing `dist/`.
 
 `dist/` is listed in `.gitignore` but force-added and **tracked on `main`** as well; a change is not live until `dist/` is rebuilt. `vite.config.ts` sets `base: './'` so built asset URLs stay relative. `public/.nojekyll` stops Jekyll from eating hashed asset filenames.
 
