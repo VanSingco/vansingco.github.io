@@ -26,3 +26,10 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# Local staging for the slow-mount npm workaround
+.trash-nm
+.nm-stale
+
+# sshfs leftovers from deleted-but-open files
+.fuse_hidden*
