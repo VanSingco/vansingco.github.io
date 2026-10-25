@@ -7,7 +7,7 @@ export const site = {
   tagline:
     'I design and build web applications end to end from the interface people use to the APIs and database behind it.',
   intro: [
-    'I’m a Full-Stack Web Developer with 6 years of experience building scalable, user-focused web applications and SaaS products.',
+    'I’m a Full-Stack Web Developer with 7 years of experience building scalable, user-focused web applications and SaaS products.',
     'I work across the full development lifecycle from responsive frontend experiences to the APIs, database architecture, third-party integrations, payment systems, and production deployments behind them.',
     'I have hands-on experience with SaaS development, REST APIs, Stripe integrations, authentication systems, cloud-based applications, automation, and AI-powered features.',
     'I’m actively incorporating AI and agentic development into my workflow. I use Claude Code regularly to understand complex codebases, plan implementations, debug issues, refactor code, and review changes accelerating delivery while maintaining code quality.',
